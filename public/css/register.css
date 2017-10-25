@@ -1,0 +1,108 @@
+/* Box Sizing border box */
+*, *:before, *:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body{
+	font-family: sans-serif;
+	margin: 0;
+	/*background:#eee; */
+	background: url(../images/bg/register.png) no-repeat;
+	background-size: cover;
+	height: 100vh;
+}
+
+.row{
+	padding: 20px;
+}
+
+
+#register{
+	color:#fff;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+}
+
+.register-section{
+	width: 100%;
+	padding: 20px;
+}
+
+.register{
+	background: #fff;
+	color: #979899;
+	display: flex;
+	flex-direction: column;
+	min-height: 30vh;
+}
+
+.register-nav{
+	height: 40px;
+	background-color: #e67e22;
+}
+
+.register-center{
+	width: 100%;
+}
+
+.register .register-center input{
+	height: 50px;
+    border: 1px solid #eee;
+    color: #979899;
+    font-size: 15px;
+    font-weight: lighter;
+}
+
+.register .register-center input::placeholder{
+    color: #979899;
+    font-size: 15px;
+    font-weight: lighter;
+}
+
+.firstname-form{
+	margin-bottom: 0;
+	display: flex;
+}
+
+.firstname-input{
+	width: 50%;
+}
+
+.lastname-input{
+	width: 50%;
+}
+
+.username-form{
+	margin-bottom: 0;
+	margin-top: -2px;
+}
+
+.email-form{
+	margin-bottom: 0;
+	margin-top: -2px;
+}
+
+.password-form{
+	margin-top: -2px;
+}
+
+.button-form{
+	display: flex;
+    justify-content: center;
+}
+
+.login-tab{
+	font-size: 12px;
+}
+
+.login-tab a{
+	color:#e67e22;
+}
+
+.login-tab a:hover{
+	text-decoration: none;
+}
