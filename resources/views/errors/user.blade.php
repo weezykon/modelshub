@@ -3,9 +3,9 @@
   <div class="col-md-9">
   	<section class="error-wrapper">
         <i class="icon-404"></i>
-        <h1>404</h1>
-        <h2>page not found</h2>
-        <p>Something went wrong or that page doesn’t exist yet. <a class="btn btn-darkgreen" href="{{route('home')}}">Return Home</a></p>
+        <h1>Oops!!!</h1>
+        <h2>User not found</h2>
+        <p>Dont worry <span class="user-error">{{$pro}}</span> would soon arrive. <a class="btn btn-amber" href="{{route('home')}}">Return Home</a></p>
     </section>
   </div>
 @endsection('accounttype')

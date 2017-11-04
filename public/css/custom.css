@@ -1,26 +1,29 @@
 /* Box Sizing border box */
-*, *:before, *:after{
+
+*,
+*:before,
+*:after {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
-.hr-line{
+.hr-line {
     margin-top: 1rem;
     margin-bottom: 1rem;
     border: 0;
-    border-bottom: 1px solid rgba(0,0,0,.1);
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
 }
 
-.three-width{
+.three-width {
     width: 300px;
 }
 
-.two-width{
+.two-width {
     width: 200px;
 }
 
-.account-icon{
+.account-icon {
     color: #e8e8e8;
     font-size: 40px;
     height: 60px;
@@ -28,33 +31,39 @@
     padding: 0;
 }
 
-.white-panel{
+.white-panel {
     background: #fff;
     padding: 10px;
     margin-bottom: 50px;
 }
 
-.custom-head{
+.custom-head {
     font-size: 25px;
 }
 
-.account-details{
+.account-details {
     font-size: 20px;
 }
 
-.reg-warning{
+.reg-warning {
     font-size: 10px !important;
     color: red !important;
 }
 
-.account-btn-section{
+.account-btn-section {
     padding: 10px;
     background: #e8e8e8;
     margin-bottom: -10px;
     box-shadow: 0px 1px 0px #ccc;
 }
 
-.row-center{
+.row-center {
     display: flex;
     justify-content: center;
+}
+
+.user-error {
+    font-size: 20px;
+    font-weight: 300px;
+    color: #9b59b6;
 }

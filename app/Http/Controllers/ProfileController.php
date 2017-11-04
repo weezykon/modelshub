@@ -21,7 +21,7 @@ class ProfileController extends Controller
     	$user = User::where('username', $pro)->get();
     	// $user = DB::table('users')->where('username', $pro)->get();
     	if($user->isEmpty()){
-    		return view('errors.user');
+    		return view('errors.user',compact('pro'));
     	}
     	$user_id = $user[0]->id;
     	// $works = Works::where('user_id', $user_id)->get();
@@ -73,5 +73,51 @@ class ProfileController extends Controller
     public function showeducation($id){
     	$educations = Education::latest()->where('user_id', $id)->get();
     	return view('ajax.education',compact('educations'));
+	}
+	
+	public function updateavatar(Request $request){
+
+    	$this->validate($request,[
+    		'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+    	]);
+
+    	// dd(request()->all());
+    	// rename image name or file name 
+        $image = $request->file('image');
+        $input['imagename'] = Auth::user()->username.'_'.time().'.'.$image->getClientOriginalExtension();
+        $destinationPath = public_path('/images/profile');
+        $image->move($destinationPath, $input['imagename']);
+        
+    	// Process the data
+    	// $user = new User;
+    	User::where('id', Auth::user()->id)
+                ->update([
+                    'avatar' => $input['imagename'],
+                ]);
+		// return redirect('/cover');
+		return back();
+    }
+
+    public function updatecover(Request $request){
+
+    	$this->validate($request,[
+    		'cover' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+    	]);
+
+    	// dd(request()->all());
+    	// rename image name or file name 
+		$image = $request->file('cover');
+        $input['imagename'] = Auth::user()->username.'_'.time().'.'.$image->getClientOriginalExtension();
+        $destinationPath = public_path('/images/cover');
+        $image->move($destinationPath, $input['imagename']);
+        
+    	// Process the data
+    	// $user = new User;
+    	User::where('id', Auth::user()->id)
+                ->update([
+                    'cover' => $input['imagename'],
+                ]);
+		// return redirect('/');
+		return back();
     }
 }

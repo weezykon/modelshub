@@ -63,4 +63,6 @@ Route::get('/profileeducation/{id}', 'ProfileController@showeducation');
 Route::get('/profilecertification/{id}', 'ProfileController@showcertification');
 Route::get('/profilework/{id}', 'ProfileController@showwork');
 Route::get('/profilepageant/{id}', 'ProfileController@showpageant');
+Route::post('/profileavatar', 'ProfileController@updateavatar');
+Route::post('/profilecover', 'ProfileController@updatecover');
 Route::get('/{profile}', 'ProfileController@showprofile');

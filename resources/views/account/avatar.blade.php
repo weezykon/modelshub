@@ -21,6 +21,9 @@
                                         <span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
                                         <input type="file" class="default" name="image" required="">
                                     </span>
+                                    <span class="label label-warning">
+                                        <b class="small">Less Than 2MB</b>
+                                    </span>
                                 </div>
                             </div>
                         </div>

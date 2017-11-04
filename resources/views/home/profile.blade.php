@@ -7,34 +7,57 @@
       background-size: cover !important;
     }
     .profiletext{
-      margin-top: -10px;
+      /* margin-top: -10px; */
       margin-left:10px;
+      min-height:70px;
     }
     .profiletext h2{
       margin: 0;
+    }
+    .uploadPic{
+      position: relative;
+      top: -30px;
+      left: -90px;
+    }
+    .uploadCover{
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 50%;
     }
   </style>
   <div class="col-md-9">
       <section class="panel">
           <div class="cover-photo">
               <div class="fb-timeline-img">
+                @if(Auth::user()->id == $user[0]->id)
+                  <div class="uploadCover">
+                    <button class="btn btn-white" data-toggle="modal" data-target="#CoverModal"><i class="fa fa-image"></i></button>
+                  </div>
+                @endif
               </div>
           </div>
           <div class="panel-body">
               <div class="profile-thumb">
                   <img src="/images/profile/{{$user[0]->avatar}}" alt="">
               </div>
+              @if(Auth::user()->id == $user[0]->id)
+                <div class="uploadPic">
+                  <button class="btn btn-white" data-toggle="modal" data-target="#AvatarModal"><i class="fa fa-image"></i></button>
+                </div>
+              @endif
               <div class="profile-thumb profiletext">
                 <h2><a>{{ $user[0]->lastname }} {{ $user[0]->firstname }}</a></h2>
                 <a class="fb-user-mail">{{ $user[0]->username }}</a>
               </div>
-              <div class="profile-thumb profiletext">
-                <form>
-                  <input type="" name="">
-                  <button class="btn btn-sm btn-amber">Connect</button>
-                </form>
-              </div>
               @if(Auth::user()->id != $user[0]->id)
+                <div class="profile-thumb profiletext">
+                  <form>
+                    <input type="" name="">
+                    <button class="btn btn-sm btn-amber">Connect</button>
+                  </form>
+                </div>
                 @if($user[0]->type == 'Model')
                   <div class="profile-thumb profiletext">
                     <a href="/book" class="btn btn-sm btn-amber">Book</a>
@@ -429,6 +452,92 @@
       </div>
     </div>
   </div>
+
+  <!-- Upload Avatar Modal -->
+  <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="AvatarModal" class="modal fade col-md-12">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Upload Avatar</h4>
+        </div>
+        <form method="post" action="/profileavatar" enctype="multipart/form-data">
+          <div class="modal-body">
+            <div class="row">
+                {{ csrf_field() }}
+                <div class="form-group col-md-12 row-center">
+                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                        <input type="hidden">
+                        <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+                            <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="">
+                        </div>
+                        <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 10px;">
+                        </div>
+                        <div>
+                            <span class="btn btn-white btn-file">
+                              <span class="fileupload-new"><i class="fa fa-paper-clip"></i> Select Avatar</span>
+                              <span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
+                              <input type="file" class="default" name="image" required="">
+                            </span>
+                            <span class="label label-warning">
+                              <b class="small">Less Than 2MB</b>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+            <button type="submit" class="btn btn-amber-outline">Upload <i class="fa fa-image"></i></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Upload Cover Modal -->
+  <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="CoverModal" class="modal fade col-md-12">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Upload Cover</h4>
+        </div>
+        <form method="post" action="/profilecover" enctype="multipart/form-data">
+          <div class="modal-body">
+            <div class="row">
+                {{ csrf_field() }}
+                <div class="form-group col-md-12 row-center">
+                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                        <input type="hidden">
+                        <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+                            <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="">
+                        </div>
+                        <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 10px;">
+                        </div>
+                        <div>
+                            <span class="btn btn-white btn-file">
+                              <span class="fileupload-new"><i class="fa fa-paper-clip"></i> Select Cover</span>
+                              <span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
+                              <input type="file" class="default" name="cover" required="">
+                            </span>
+                            <span class="label label-warning">
+                              <b class="small">Less Than 2MB</b>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+            <button type="submit" class="btn btn-amber-outline">Upload <i class="fa fa-image"></i></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 @endsection('accounttype')
 @section('footer')
   <script type="text/javascript">
@@ -505,7 +614,7 @@
       });
 
       var refreshId = setInterval(function() {
-          $("#viewpageant").load('showpageant/'+user);
+          $("#viewpageant").load('profilepageant/'+user);
       }, 10000);
 
       $(document).on('click', '.pageant-delete-button', function(){ 
@@ -551,7 +660,7 @@
       });
 
       var refreshId = setInterval(function() {
-          $("#showEducation").load('showeducation/'+user);
+          $("#showEducation").load('profileeducation/'+user);
       }, 10000);
 
       $(document).on('click', '.education-delete-button', function(){ 
@@ -597,7 +706,7 @@
       });
 
       var refreshId = setInterval(function() {
-          $("#showCert").load('showcertification/'+user);
+          $("#showCert").load('profilecertification/'+user);
       }, 10000);
 
       $(document).on('click', '.cert-delete-button', function(){ 
@@ -615,4 +724,11 @@
           })
       });
   </script>
+  @if(count($errors))
+      <script type="text/javascript">
+              @foreach ($errors->all() as $error)
+                  toastr.error("{{$error}}");
+              @endforeach
+      </script>
+  @endif
 @endsection('footer')
