@@ -28,6 +28,9 @@
     <script type="text/javascript" src="assets/jquery-multi-select/js/jquery.multi-select.js"></script>
     <script type="text/javascript" src="assets/jquery-multi-select/js/jquery.quicksearch.js"></script>
 
+    {{--  Drop Zone  --}}
+    <script type="text/javascript" src="assets/dropzone/dropzone.js"></script>
+
     <!--select2-->
     <script type="text/javascript" src="assets/select2/js/select2.min.js"></script>
 

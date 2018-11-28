@@ -50,7 +50,7 @@
                 </div>
             </form>
             <hr/>
-            <a href="/" role="button" class="btn btn-purple-outline">Finish <i class="fa fa-check-square"></i></a>
+            <a href="/accountwork" role="button" class="btn btn-purple-outline">Continue <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <div class="col-md-6">

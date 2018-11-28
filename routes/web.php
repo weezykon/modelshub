@@ -26,6 +26,8 @@ Route::get('/avatar', 'AccountController@avatar')->name('accounttype');
 Route::post('/avatar', 'AccountController@updateavatar');
 Route::get('/cover', 'AccountController@cover')->name('accounttype');
 Route::post('/cover', 'AccountController@updatecover');
+Route::get('/modelshoot', 'ModelsController@shoot')->name('accounttype');
+Route::post('/modelshoot', 'ModelsController@updateshoots');
 Route::get('/accounteducation', 'AccountController@accounteducation')->name('accounttype');
 Route::post('/accounteducation', 'AccountController@posteducation');
 Route::get('/deleteeducation/{id}', 'AccountController@deleteeducation');

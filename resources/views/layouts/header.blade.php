@@ -18,7 +18,10 @@
     <link href="assets/fontawesome/css/font-awesome.css" rel="stylesheet" />
     <!--<link href="css/navbar-fixed-top.css" rel="stylesheet">-->
 
-      <!-- Custom styles for this template -->
+    {{--  Dropzone  --}}
+    <link href="assets/dropzone/css/dropzone.css" rel="stylesheet"/>
+
+    <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
     <link href="css/style-responsive.css" rel="stylesheet"/>
     <link rel="stylesheet" href="/css/button.css">
