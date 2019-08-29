@@ -16,10 +16,10 @@ class CreateEducationTable extends Migration
         Schema::create('education', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->varchar('school');
-            $table->varchar('degree');
-            $table->varchar('field');
-            $table->varchar('grade');
+            $table->string('school');
+            $table->string('degree');
+            $table->string('field');
+            $table->string('grade');
             $table->date('from');
             $table->date('to');
             $table->text('description');

@@ -15,17 +15,17 @@ class CreateMembersTable extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->increments('id');
-            $table->int('user_id');
+            $table->integer('user_id');
             $table->string('phone');
             $table->text('address');
             $table->date('dob');
             $table->text('bio');
-            $table->varchar('gender');
+            $table->string('gender');
             $table->text('languages');
-            $table->varchar('website');
-            $table->varchar('state');
-            $table->varchar('country');
-            $table->varchar('town');
+            $table->string('website');
+            $table->string('state');
+            $table->string('country');
+            $table->string('town');
             $table->timestamps();
         });
     }

@@ -23,7 +23,7 @@ class AccountController extends Controller
     }
 
     public function accounttypeview(){
-    	if (Auth::user()->type == '') {
+    	if (Auth::user()->type == NULL) {
     		return view('account.account_type');
     	}else{
     		return redirect('/');

@@ -15,24 +15,24 @@ class CreateModelsTable extends Migration
     {
         Schema::create('models', function (Blueprint $table) {
             $table->increments('id');
-            $table->int('user_id');
+            $table->integer('user_id');
             $table->string('phone');
             $table->text('address');
             $table->date('dob');
             $table->text('bio');
-            $table->varchar('gender');
+            $table->string('gender');
             $table->text('languages');
             $table->text('modeltype');
-            $table->varchar('website');
-            $table->varchar('state');
-            $table->varchar('country');
-            $table->varchar('town');
+            $table->string('website');
+            $table->string('state');
+            $table->string('country');
+            $table->string('town');
             $table->integer('chest');
             $table->integer('waist');
             $table->integer('height');
             $table->integer('shoe');
-            $table->varchar('eye');
-            $table->varchar('hair');
+            $table->string('eye');
+            $table->string('hair');
             $table->timestamps();
         });
     }

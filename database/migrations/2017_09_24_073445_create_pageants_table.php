@@ -16,8 +16,8 @@ class CreatePageantsTable extends Migration
         Schema::create('pageants', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->varchar('pageant_name');
-            $table->varchar('position');
+            $table->string('pageant_name');
+            $table->string('position');
             $table->date('start');
             $table->date('end');
             $table->text('description');

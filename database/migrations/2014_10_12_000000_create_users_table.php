@@ -20,8 +20,8 @@ class CreateUsersTable extends Migration
             $table->string('email');
             $table->string('username');
             $table->string('password');
-            $table->string('type');
-            $table->varchar('avatar');
+            $table->string('type')->nullable();
+            $table->string('avatar');
             $table->string('cover');
             $table->tinyInteger('verify');
             $table->rememberToken();

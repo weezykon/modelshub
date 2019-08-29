@@ -16,12 +16,12 @@ class CreateCertificationsTable extends Migration
         Schema::create('certifications', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->varchar('cert_name');
-            $table->varchar('authority');
+            $table->string('cert_name');
+            $table->string('authority');
             $table->integer('license');
             $table->date('start');
             $table->date('end');
-            $table->varchar('url');
+            $table->string('url');
             $table->text('description');
             $table->timestamps();
         });

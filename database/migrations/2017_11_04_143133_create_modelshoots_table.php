@@ -16,7 +16,7 @@ class CreateModelshootsTable extends Migration
         Schema::create('modelshoots', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->varchar('photo');
+            $table->string('photo');
             $table->timestamps();
         });
     }
